@@ -1,6 +1,8 @@
 <?php
     
-    if(isset($_POST['username']))
+    if(isset($_POST['username'])){
+        echo "username";
+    }
 ?>
 
 <?php
