@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2018-04-13 11:10:24.265
+-- Last modification date: 2018-04-13 11:17:10.733
 
 -- tables
 -- Table: quote
@@ -26,6 +26,7 @@ CREATE TABLE "user" (
     username varchar(64)  NOT NULL,
     firstname varchar(64)  NOT NULL,
     lastname varchar(64)  NOT NULL,
+    password varchar(256)  NOT NULL,
     email varchar(64)  NOT NULL,
     creation_date timestamp  NOT NULL,
     CONSTRAINT user_pk PRIMARY KEY (id)
