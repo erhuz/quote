@@ -1,6 +1,14 @@
-<?
+<?php
 session_start();
-    
+$isloggedin = false;
+
+if(isset($_SESSION['user_id'])){
+    $isloggedin = true;
+}
+
+// connect to db
+require("db/connection.php");
+$pdo = new PDO("mysql:host=". db_servername . ":" . db_port . ";dbname=" . db_dbname, db_username, db_password);
 ?>
 
 <?php
