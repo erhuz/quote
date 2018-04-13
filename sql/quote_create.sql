@@ -21,7 +21,7 @@ CREATE TABLE quoted (
 );
 
 -- Table: user
-CREATE TABLE "user" (
+CREATE TABLE user (
     id int  NOT NULL,
     username varchar(64)  NOT NULL,
     firstname varchar(64)  NULL,
@@ -44,7 +44,7 @@ ALTER TABLE quote ADD CONSTRAINT quoted_quote
 -- Reference: user_quote (table: quote)
 ALTER TABLE quote ADD CONSTRAINT user_quote
     FOREIGN KEY (user_id)
-    REFERENCES "user" (id)  
+    REFERENCES user (id)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
