@@ -1,14 +1,14 @@
 @charset "UTF-8";
 body {
   min-height: 100vh;
-  background: linear-gradient(to bottom right, #1e272e, #485460);
+  background: linear-gradient(to bottom right, #1e272e, #354049);
 }
 
-@-ms-viewport {
-  width: device-width;
+body h1, body h2, body h3, body h4, body h5, body p, body span {
+  color: #fff !important;
 }
 
-body, html {
+#quote-page body, #quote-page html {
   margin: 0;
   font-family: lato;
   font-size: 16;
@@ -16,39 +16,40 @@ body, html {
   color: #d2dae2;
 }
 
-.qcont {
+#quote-page .qcont {
   margin: 5px;
   margin-bottom: 0px;
   font-size: 20;
 }
 
-.qcont:before, .qcont:after {
+#quote-page .qcont:before, #quote-page .qcont:after {
   content: "\0022";
 }
 
-.qname {
+#quote-page .qname {
   margin: 25px;
   margin-top: 2px;
 }
 
-.qname:before {
+#quote-page .qname:before {
   content: "― ";
   word-spacing: -5px;
 }
 
-.outer {
+#quote-page .outer {
   display: table;
   position: absolute;
   height: 100%;
   width: 100%;
 }
 
-.middle {
+#quote-page .middle {
+  text-align: center;
   display: table-cell;
   vertical-align: middle;
 }
 
-.inner {
+#quote-page .inner {
   margin-left: auto;
   margin-right: auto;
 }

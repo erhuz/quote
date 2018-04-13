@@ -6,7 +6,11 @@
 
 body{
     min-height: 100vh;
-    background: linear-gradient(to bottom right, #1e272e, #485460);
+    background: linear-gradient(to bottom right, #1e272e, #354049);
+
+    h1,h2,h3,h4,h5,p,span{
+        color: #fff !important;
+    }
 }
 
 #quote-page{
