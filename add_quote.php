@@ -17,6 +17,7 @@
 
         try{
             $pdo = new PDO("mysql:host=". db_servername . ":" . db_port . ";dbname=" . db_dbname, db_username, db_password);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Set the PDO error mode to exception
 
             $stmt = $pdo->prepare($query);
             $stmt->execute(array(

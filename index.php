@@ -8,7 +8,22 @@ if(isset($_SESSION['user_id'])){
 
 // connect to db
 require("db/connection.php");
-$pdo = new PDO("mysql:host=". db_servername . ":" . db_port . ";dbname=" . db_dbname, db_username, db_password);
+
+$query = "SELECT * FROM quote";
+
+try{
+    $pdo = new PDO("mysql:host=". db_servername . ":" . db_port . ";dbname=" . db_dbname, db_username, db_password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Set the PDO error mode to exception
+
+    $stmt = $pdo->prepare($query);
+    $stmt->execute();
+
+    $result = $stmt->fetchAll();
+}
+catch(PDOException $e){
+    
+}
+
 ?>
 
 <?php
@@ -33,30 +48,26 @@ $pdo = new PDO("mysql:host=". db_servername . ":" . db_port . ";dbname=" . db_db
         </div>
         <div class="row mt-4">
             <div class="col-md-10 offset-md-1 quotes">
-                <div class="card text-white bg-primary mb-3">
-                    <div class="card-body">
-                        <blockquote class="blockquote text-center">
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-                        </blockquote>
-                    </div>
-                </div>
-                <div class="card text-white bg-primary mb-3">
-                    <div class="card-body">
-                        <blockquote class="blockquote text-center">
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-                        </blockquote>
-                    </div>
-                </div>
-                <div class="card text-white bg-primary mb-3">
-                    <div class="card-body">
-                        <blockquote class="blockquote text-center">
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-                        </blockquote>
-                    </div>
-                </div>
+
+                <?php
+                    foreach($result as $row){
+                        $text = $row['text'];
+                        $name = ucfirst($row['name']);
+                        $date = $row['creation_date'];
+
+                        echo <<<EOD
+                        <div class="card text-white bg-primary mb-3">
+                            <div class="card-body">
+                                <blockquote class="blockquote text-center">
+                                    <p class="mb-0"><cite title="Quote from $name">"$text"</cite></p>
+                                    <footer class="blockquote-footer">$name</footer>
+                                </blockquote>
+                            </div>
+                        </div>
+EOD;
+                    }
+                ?>
+                
             </div>
         </div>
     </main>
