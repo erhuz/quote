@@ -3,7 +3,7 @@
         if($_POST['InputPassword1'] === $_POST['InputPassword2']){
             require('db/connection.php');
 
-            $query = "INSERT INTO user (username, password, email) VALUES (:username, :password, :email);"; // set query here
+            $query = "INSERT INTO user (username, firstname, lastname, password, email) VALUES (:username, :firstname, :lastname, :password, :email);"; // set query here
 
             try{
             $pdo = new PDO("mysql:host=". db_servername . ":" . db_port . ";dbname=" . db_dbname, db_username, db_password);
@@ -12,6 +12,8 @@
                 $stmt = $pdo->prepare($query);
                 $stmt->execute(array(
                     'username' => $_POST['InputUsername'],
+                    'firstname' => strtolower($_POST['InputFirstname']),
+                    'lastname' => strtolower($_POST['InputLastname']),
                     'password' => hash("sha256", $_POST['InputPassword1']),
                     'email' => $_POST['InputEmail']
                 ));
@@ -59,6 +61,14 @@ EOD;
                                     <input class="form-control" name="InputUsername" id="InputUsername" aria-describedby="usernameHelp" placeholder="Enter username" type="text" required>
                                 </div>
                                 <div class="form-group">
+                                    <label for="InputFirstname">Firstname (optional)</label>
+                                    <input class="form-control" name="InputFirstname" id="InputFirstname" aria-describedby="FirstnameHelp" placeholder="Enter Firstname" type="text" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="InputLastname">Lastname (optional)</label>
+                                    <input class="form-control" name="InputLastname" id="InputLastname" aria-describedby="LastnameHelp" placeholder="Enter Lastname" type="text" required>
+                                </div>
+                                <div class="form-group">
                                     <label for="InputEmail">Email address</label>
                                     <input class="form-control" name="InputEmail" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email" type="email" required>
                                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
@@ -66,11 +76,12 @@ EOD;
                                 <div class="form-group">
                                     <label for="InputPassword1">Password</label>
                                     <input class="form-control" name="InputPassword1" id="InputPassword1" aria-describedby="passwordHelp" placeholder="Password" type="password" required>
-                                    <small id="passwordHelp" class="form-text text-muted">We won't even know what your password is.</small>
+                                    <small id="passwordHelp" class="form-text text-muted">Your password will be securely stored and non readable to humans.</small>
                                 </div>
                                 <div class="form-group">
                                     <label for="InputPassword2">Confirm password</label>
-                                    <input class="form-control" name="InputPassword2" id="InputPassword2" placeholder="Password" type="password">
+                                    <input class="form-control" name="InputPassword2" id="InputPassword2" aria-describedby="password2Help" placeholder="Confirm password" type="password">
+                                    <small id="password2Help" class="form-text text-muted">Please enter your password again to confirm.</small>
                                 </div>
                                 <fieldset class="form-group">
                                     <legend>Agreements</legend>
