@@ -4,7 +4,7 @@
 -- tables
 -- Table: quote
 CREATE TABLE quote (
-    id int  NOT NULL,
+    id int  NOT NULL AUTO_INCREMENT,
     quoted_id int  NOT NULL,
     user_id int  NOT NULL,
     text varchar(256)  NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE quote (
 
 -- Table: quoted
 CREATE TABLE quoted (
-    id int  NOT NULL,
+    id int  NOT NULL AUTO_INCREMENT,
     name varchar(64)  NOT NULL,
     creation_date timestamp  NOT NULL,
     CONSTRAINT quoted_pk PRIMARY KEY (id)
@@ -22,7 +22,7 @@ CREATE TABLE quoted (
 
 -- Table: user
 CREATE TABLE user (
-    id int  NOT NULL,
+    id int  NOT NULL AUTO_INCREMENT,
     username varchar(64)  NOT NULL,
     firstname varchar(64)  NULL,
     lastname varchar(64)  NULL,
