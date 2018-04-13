@@ -12,7 +12,7 @@
                 $stmt = $pdo->prepare($query);
                 $stmt->execute(array(
                     'username' => $_POST['InputUsername'],
-                    'password' => $_POST['InputPassword1'],
+                    'password' => hash("sha256", $_POST['InputPassword1']),
                     'email' => $_POST['InputEmail']
                 ));
 
@@ -27,11 +27,8 @@
         }
     }
 ?>
-<pre style="color:#fff">
-<?php
-    print_r(get_defined_vars());
-    echo "</pre>";
 
+<?php
     require("templates/head.php");
     require("templates/header.php");
     require("templates/nav.php");
