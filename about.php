@@ -1,9 +1,9 @@
 <?php
     session_start();
-    
-    if(isset($_POST['username'])){
-        session_start();
-        
+    $isloggedin = false;
+
+    if(isset($_SESSION['user_id'])){
+        $isloggedin = true;
     }
 ?>
 
@@ -11,7 +11,7 @@
     require("templates/head.php");
     require("templates/header.php");
     
-    if(isset($_SESSION['userID'])){
+    if(isset($_SESSION['user_id'])){
         require("templates/nav_loggedin.php");
     }else{
         require("templates/nav.php");
@@ -22,9 +22,12 @@
         <div class="row">
             <div class="col-md-12">
                 <h1>About</h1>
+
+
                 <h2>Add content here.</h2>
+
+
             </div>
-        
         </div>
     </main>
     <?php

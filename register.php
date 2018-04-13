@@ -1,5 +1,10 @@
 <?php
     session_start();
+    $isloggedin = false;
+
+    if(isset($_SESSION['user_id'])){
+        $isloggedin = true;
+    }
     
     if(isset($_POST['InputEmail'])){
         if($_POST['InputPassword1'] === $_POST['InputPassword2']){
@@ -36,24 +41,24 @@
     require("templates/head.php");
     require("templates/header.php");
 
-    if(isset($_SESSION['userID'])){
+    if(isset($_SESSION['user_id'])){
         require("templates/nav_loggedin.php");
     }else{
         require("templates/nav.php");
     }
 ?>
     
-    <?php
-        if(isset($_GET['mess'])){
-            $mess = $_GET['mess'];
-            echo <<<EOD
-            <div class="alert alert-dismissible alert-danger">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>Oh snap!</strong> $mess.
-            </div>
+<?php
+    if(isset($_GET['mess'])){
+        $mess = $_GET['mess'];
+        echo <<<EOD
+        <div class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Oh snap!</strong> $mess.
+        </div>
 EOD;
-        }
-    ?>
+    }
+?>
 
     <main class="container">
         <div class="row">

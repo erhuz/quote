@@ -11,7 +11,7 @@
     require("templates/head.php");
     require("templates/header.php");
     
-    if(isset($_SESSION['userID'])){
+    if(isset($_SESSION['user_id'])){
         require("templates/nav_loggedin.php");
     }else{
         require("templates/nav.php");
