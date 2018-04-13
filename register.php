@@ -1,5 +1,4 @@
 <?php
-    print_r(get_defined_vars());
     if(isset($_POST['InputEmail'])){
         if($_POST['InputPassword1'] === $_POST['InputPassword2']){
             require('db/connection.php');
@@ -34,6 +33,7 @@
 ?>
 
 <?php
+    print_r(get_defined_vars());
     require("templates/head.php");
     require("templates/header.php");
     require("templates/nav.php");
