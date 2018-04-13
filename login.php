@@ -1,6 +1,16 @@
 <?php
     session_start();
-    
+    $isloggedin = false;
+
+    if(isset($_SESSION['user_id'])){
+        $isloggedin = true;
+    }
+
+    if($isloggedin){
+        header("location: /");
+        exit;
+    }
+
     if(isset($_POST['InputEmail'])){
         require("db/connection.php");
 
@@ -20,7 +30,8 @@
             
             $_SESSION['user_id'] = $result[0]['id'];
             $_SESSION['user_pwd'] = $result[0]['password'];
-
+            header("location: /");
+            exit;
         }
         catch(PDOException $e){
             echo "Connection failed: " . $e->getMessage();
@@ -29,10 +40,6 @@
 ?>
 
 <?php
-    echo '<pre style="color:#fff">';
-    print_r(get_defined_vars());
-    echo "</pre>";
-
     require("templates/head.php");
     require("templates/header.php");
     
@@ -41,18 +48,8 @@
     }else{
         require("templates/nav.php");
     }
-?>
 
-<?php
-    if(isset($_GET['mess'])){
-        $mess = $_GET['mess'];
-        echo <<<EOD
-        <div class="alert alert-dismissible alert-danger">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <strong>Oh snap!</strong> $mess.
-        </div>
-EOD;
-    }
+    require("templates/messages.php");
 ?>
 
     <main class="container">
