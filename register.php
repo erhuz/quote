@@ -2,12 +2,19 @@
     if(isset($_POST['InputEmail'])){
         require('db/connection.php');
 
-        try{
-            $conn = new PDO("mysql:host=". db_servername . ":" . db_port . ";dbname=" . db_dbname, db_username, db_password);
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Set the PDO error mode to exception
+        $query = "SELECT * from quote"; // set query here
 
-            echo "Connected successfully";
-        
+        try{
+            $pdo = new PDO("mysql:host=". db_servername . ":" . db_port . ";dbname=" . db_dbname, db_username, db_password);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Set the PDO error mode to exception
+
+            $stmt = $pdo->prepare($query);
+            $stmt->execute();
+
+            $result = $stmt->fetchAll();
+
+            print_r($result);
+            
         }
         catch(PDOException $e){
             echo "Connection failed: " . $e->getMessage();
