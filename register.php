@@ -1,4 +1,5 @@
 <?php
+    print_r(get_defined_vars());
     if(isset($_POST['InputEmail'])){
         require('db/connection.php');
 
@@ -14,6 +15,8 @@
             $result = $stmt->fetchAll();
 
             print_r($result);
+
+            echo "Connection successfull";
             
         }
         catch(PDOException $e){
