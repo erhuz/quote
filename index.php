@@ -1,25 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Lato:200,300,400,700" rel="stylesheet">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="css/main.min.css">
-    <title>Quoteinator</title>
-</head>
-<body>
-    <header></header>
-    <main id="quote-page">
-		<div class="outer">
-		  <div class="middle">
-		    <div class="inner">
-				<p class="qcont">Coax - Som telefonledning fast på steroider</p>
-				<pre class="qname">Pommes</pre>
-		    </div>
-		  </div>
+<?php
+    require("templates/head.php");
+    require("templates/header.php");
+    require("templates/nav.php");
+?>
+
+    <main class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Welcome to Quotinator</h1>
+                <p>Please read our quotes posted by our users.</p>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-10 offset-md-1 quotes">
+                <div class="card text-white bg-primary mb-3">
+                    <div class="card-body">
+                        <blockquote class="blockquote text-center">
+                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="card text-white bg-primary mb-3">
+                    <div class="card-body">
+                        <blockquote class="blockquote text-center">
+                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="card text-white bg-primary mb-3">
+                    <div class="card-body">
+                        <blockquote class="blockquote text-center">
+                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
-    <footer></footer>
+    <?php
+        require("templates/footer.php");
+        require("templates/scripts.php");
+    ?>
 </body>
 </html>
