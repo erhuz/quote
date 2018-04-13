@@ -41,27 +41,27 @@
                                 <legend>Register</legend>
                                 <div class="form-group">
                                     <label for="InputUsername">Username</label>
-                                    <input class="form-control" id="InputUsername" aria-describedby="usernameHelp" placeholder="Enter username" type="text" required>
+                                    <input class="form-control" name="InputUsername" id="InputUsername" aria-describedby="usernameHelp" placeholder="Enter username" type="text" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="InputEmail">Email address</label>
-                                    <input class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email" type="email" required>
+                                    <input class="form-control" name="InputEmail" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email" type="email" required>
                                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                 </div>
                                 <div class="form-group">
                                     <label for="InputPassword1">Password</label>
-                                    <input class="form-control" id="InputPassword1" aria-describedby="passwordHelp" placeholder="Password" type="password" required>
+                                    <input class="form-control" name="InputPassword1" id="InputPassword1" aria-describedby="passwordHelp" placeholder="Password" type="password" required>
                                     <small id="passwordHelp" class="form-text text-muted">We won't even know what your password is.</small>
                                 </div>
                                 <div class="form-group">
                                     <label for="InputPassword2">Confirm password</label>
-                                    <input class="form-control" id="InputPassword2" placeholder="Password" type="password">
+                                    <input class="form-control" name="InputPassword2" id="InputPassword2" placeholder="Password" type="password">
                                 </div>
                                 <fieldset class="form-group">
                                     <legend>Agreements</legend>
                                     <div class="form-check">
                                         <label class="form-check-label">
-                                        <input class="form-check-input" value="" type="checkbox">
+                                        <input class="form-check-input" name="agreement" value="" type="checkbox">
                                         I agree that my information is handled by Quotinator and not given to anyone else.
                                         </label>
                                     </div>
