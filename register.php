@@ -1,4 +1,4 @@
-<?
+<?php
     if(isset($_POST['InputEmail'])){
         require('db/connection.php');
 
