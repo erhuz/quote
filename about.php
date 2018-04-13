@@ -14,7 +14,10 @@
 
     <main class="container">
         <div class="row">
-            
+            <div class="col-md-12">
+                <h1>About</h1>
+                <h2>Add content here.</h2>
+            </div>
         
         </div>
     </main>
