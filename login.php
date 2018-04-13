@@ -18,8 +18,8 @@
             
             $result = $stmt->fetchAll();
             
-            $_SESSION['user_id'] = $result['id'];
-            $_SESSION['user_pwd'] = $result['password'];
+            $_SESSION['user_id'] = $result[0]['id'];
+            $_SESSION['user_pwd'] = $result[0]['password'];
 
         }
         catch(PDOException $e){
