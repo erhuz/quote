@@ -23,10 +23,8 @@
             <div class="col-md-12">
                 <h1>About</h1>
 
-
-                <h2>Add content here.</h2>
-
-
+                <p>ぼく わ せっくす だいすき、 いちばん だいすき</p>
+                
             </div>
         </div>
     </main>
