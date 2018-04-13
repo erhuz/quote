@@ -1,6 +1,6 @@
 <?php
     session_start();
-    
+
     $isloggedin = false;
 
     if(isset($_SESSION['user_id'])){
@@ -51,7 +51,7 @@
                     <div class="card-body">
                         <form action="" method="post">
                             <fieldset>
-                            <legend>Login</legend>
+                            <legend>Add a quote</legend>
                             <div class="form-group">
                                 <label for="InputText">Quote</label>
                                 <input class="form-control" id="InputText" name="InputText" placeholder="Enter quote" type="text" required>
