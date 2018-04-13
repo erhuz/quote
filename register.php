@@ -6,7 +6,7 @@
             $query = "INSERT INTO user (username, password, email) VALUES (:username, :password, :email);"; // set query here
 
             try{
-                $pdo = new PDO("mysql:host=". db_servername . ":" . db_port . ";dbname=" . db_dbname, db_username, db_password);
+            $pdo = new PDO("mysql:host=". db_servername . ":" . db_port . ";dbname=" . db_dbname, db_username, db_password);
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Set the PDO error mode to exception
 
                 $stmt = $pdo->prepare($query);
@@ -15,10 +15,6 @@
                     'password' => $_POST['InputPassword1'],
                     'email' => $_POST['InputEmail']
                 ));
-
-                $result = $stmt->fetchAll();
-
-                print_r($result);
 
                 echo "Connection successfull";
                 
@@ -31,9 +27,11 @@
         }
     }
 ?>
-
+<pre style="color:#fff">
 <?php
     print_r(get_defined_vars());
+    echo "</pre>";
+
     require("templates/head.php");
     require("templates/header.php");
     require("templates/nav.php");
