@@ -9,7 +9,7 @@
 </head>
 <body>
     <header></header>
-    <main>
+    <main id="quote-page">
 		<div class="outer">
 		  <div class="middle">
 		    <div class="inner">
