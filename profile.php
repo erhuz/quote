@@ -1,4 +1,5 @@
 <?php
+    session_start();
     
     if(isset($_POST['username'])){
         session_start();
@@ -9,7 +10,12 @@
 <?php
     require("templates/head.php");
     require("templates/header.php");
-    require("templates/nav.php");
+    
+    if(isset($_SESSION['userID'])){
+        require("templates/nav_loggedin.php");
+    }else{
+        require("templates/nav.php");
+    }
 ?>
 
     <main class="container">

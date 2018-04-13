@@ -1,4 +1,6 @@
 <?php
+    session_start();
+    
     if(isset($_POST['InputEmail'])){
         if($_POST['InputPassword1'] === $_POST['InputPassword2']){
             require('db/connection.php');
@@ -33,7 +35,12 @@
 <?php
     require("templates/head.php");
     require("templates/header.php");
-    require("templates/nav.php");
+
+    if(isset($_SESSION['userID'])){
+        require("templates/nav_loggedin.php");
+    }else{
+        require("templates/nav.php");
+    }
 ?>
     
     <?php
@@ -92,7 +99,7 @@ EOD;
                                         </label>
                                     </div>
                                 </fieldset>
-                                <button type="submit" class="btn btn-block btn-secondary float-right">Submit</button>
+                                <button type="submit" class="btn btn-block btn-secondary float-right mt-2">Submit</button>
                             </fieldset>
                         </form>
                     </div>
