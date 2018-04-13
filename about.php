@@ -16,6 +16,8 @@
     }else{
         require("templates/nav.php");
     }
+
+    require("templates/messages.php");
 ?>
 
     <main class="container">
@@ -24,7 +26,7 @@
                 <h1>About</h1>
 
                 <p>ぼく わ せっくす だいすき、 いちばん だいすき</p>
-                
+
             </div>
         </div>
     </main>

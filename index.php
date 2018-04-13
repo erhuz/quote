@@ -12,6 +12,8 @@ session_start();
     }else{
         require("templates/nav.php");
     }
+
+    require("templates/messages.php");
 ?>
 
     <main class="container">

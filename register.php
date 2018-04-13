@@ -46,6 +46,8 @@
     }else{
         require("templates/nav.php");
     }
+    
+    require("templates/messages.php");
 ?>
     
 <?php
