@@ -6,6 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.min.css">
-    <title>Login | quotinator</title>
+    <title>Quotinator</title>
 </head>
 <body>
