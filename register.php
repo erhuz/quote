@@ -1,26 +1,34 @@
 <?php
     print_r(get_defined_vars());
     if(isset($_POST['InputEmail'])){
-        require('db/connection.php');
+        if($_POST['InputPassword1'] === $_POST['InputPassword2']){
+            require('db/connection.php');
 
-        $query = "SELECT * from quote"; // set query here
+            $query = "INSERT INTO user (username, password, email) VALUES (:username, :password, :email);"; // set query here
 
-        try{
-            $pdo = new PDO("mysql:host=". db_servername . ":" . db_port . ";dbname=" . db_dbname, db_username, db_password);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Set the PDO error mode to exception
+            try{
+                $pdo = new PDO("mysql:host=". db_servername . ":" . db_port . ";dbname=" . db_dbname, db_username, db_password);
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Set the PDO error mode to exception
 
-            $stmt = $pdo->prepare($query);
-            $stmt->execute();
+                $stmt = $pdo->prepare($query);
+                $stmt->execute(array(
+                    'username' => $_POST['InputUsername'],
+                    'password' => $_POST['InputPassword1'],
+                    'email' => $_POST['InputEmail']
+                ));
 
-            $result = $stmt->fetchAll();
+                $result = $stmt->fetchAll();
 
-            print_r($result);
+                print_r($result);
 
-            echo "Connection successfull";
-            
-        }
-        catch(PDOException $e){
-            echo "Connection failed: " . $e->getMessage();
+                echo "Connection successfull";
+                
+            }
+            catch(PDOException $e){
+                echo "Connection failed: " . $e->getMessage();
+            }
+        } else {
+            header("location: ?mess=Your password confirmation doesn't match!");
         }
     }
 ?>
@@ -30,13 +38,25 @@
     require("templates/header.php");
     require("templates/nav.php");
 ?>
+    
+    <?php
+        if(isset($_GET['mess'])){
+            $mess = $_GET['mess'];
+            echo <<<EOD
+            <div class="alert alert-dismissible alert-danger">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Oh snap!</strong> $mess.
+            </div>
+EOD;
+        }
+    ?>
 
     <main class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <div class="card text-white bg-primary mb-3">
                     <div class="card-body">
-                        <form>
+                        <form action="" method="post">
                             <fieldset>
                                 <legend>Register</legend>
                                 <div class="form-group">
@@ -61,7 +81,7 @@
                                     <legend>Agreements</legend>
                                     <div class="form-check">
                                         <label class="form-check-label">
-                                        <input class="form-check-input" name="agreement" value="" type="checkbox">
+                                        <input class="form-check-input" name="agreement" value="true" type="checkbox">
                                         I agree that my information is handled by Quotinator and not given to anyone else.
                                         </label>
                                     </div>
