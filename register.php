@@ -62,11 +62,11 @@ EOD;
                                 </div>
                                 <div class="form-group">
                                     <label for="InputFirstname">Firstname (optional)</label>
-                                    <input class="form-control" name="InputFirstname" id="InputFirstname" aria-describedby="FirstnameHelp" placeholder="Enter Firstname" type="text" required>
+                                    <input class="form-control" name="InputFirstname" id="InputFirstname" aria-describedby="FirstnameHelp" placeholder="Enter Firstname" type="text">
                                 </div>
                                 <div class="form-group">
                                     <label for="InputLastname">Lastname (optional)</label>
-                                    <input class="form-control" name="InputLastname" id="InputLastname" aria-describedby="LastnameHelp" placeholder="Enter Lastname" type="text" required>
+                                    <input class="form-control" name="InputLastname" id="InputLastname" aria-describedby="LastnameHelp" placeholder="Enter Lastname" type="text">
                                 </div>
                                 <div class="form-group">
                                     <label for="InputEmail">Email address</label>
