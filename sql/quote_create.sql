@@ -24,8 +24,8 @@ CREATE TABLE quoted (
 CREATE TABLE "user" (
     id int  NOT NULL,
     username varchar(64)  NOT NULL,
-    firstname varchar(64)  NOT NULL,
-    lastname varchar(64)  NOT NULL,
+    firstname varchar(64)  NULL,
+    lastname varchar(64)  NULL,
     password varchar(256)  NOT NULL,
     email varchar(64)  NOT NULL,
     creation_date timestamp  NOT NULL,
