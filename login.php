@@ -51,5 +51,9 @@
             </div>
         </div>
     </main>
+    <?
+        require("templates/footer.php");
+        require("templates/scripts.php");
+    ?>
 </body>
 </html>
