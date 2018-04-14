@@ -50,7 +50,7 @@ catch(PDOException $e){
             <div class="col-md-10 offset-md-1 quotes">
 
                 <?php
-                    foreach($result as $row){
+                    foreach(array_reverse($result) as $row){
                         $text = $row['text'];
                         $name = ucfirst($row['name']);
                         $date = $row['creation_date'];
