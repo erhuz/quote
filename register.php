@@ -25,7 +25,7 @@
                     'email' => $_POST['InputEmail']
                 ));
 
-                echo "Connection successfull";
+                header("location: /?mess=Registration successfull&type=success");
                 
             }
             catch(PDOException $e){
@@ -74,14 +74,14 @@ EOD;
                                     <label for="InputUsername">Username</label>
                                     <input class="form-control" name="InputUsername" id="InputUsername" aria-describedby="usernameHelp" placeholder="Enter username" type="text" required>
                                 </div>
-                                <div class="form-group">
+                                <!--<div class="form-group">
                                     <label for="InputFirstname">Firstname (optional)</label>
                                     <input class="form-control" name="InputFirstname" id="InputFirstname" aria-describedby="FirstnameHelp" placeholder="Enter Firstname" type="text">
                                 </div>
                                 <div class="form-group">
                                     <label for="InputLastname">Lastname (optional)</label>
                                     <input class="form-control" name="InputLastname" id="InputLastname" aria-describedby="LastnameHelp" placeholder="Enter Lastname" type="text">
-                                </div>
+                                </div>-->
                                 <div class="form-group">
                                     <label for="InputEmail">Email address</label>
                                     <input class="form-control" name="InputEmail" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email" type="email" required>
