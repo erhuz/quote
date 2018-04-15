@@ -18,9 +18,9 @@
 
                 $stmt = $pdo->prepare($query);
                 $stmt->execute(array(
-                    'username' => $_POST['InputUsername'],
-                    'firstname' => strtolower($_POST['InputFirstname']),
-                    'lastname' => strtolower($_POST['InputLastname']),
+                    'username' => htmlspecialchars($_POST['InputUsername']),
+                    'firstname' => htmlspecialchars(strtolower($_POST['InputFirstname'])),
+                    'lastname' => htmlspecialchars(strtolower($_POST['InputLastname'])),
                     'password' => hash("sha256", $_POST['InputPassword1']),
                     'email' => $_POST['InputEmail']
                 ));

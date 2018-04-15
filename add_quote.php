@@ -22,8 +22,8 @@
             $stmt = $pdo->prepare($query);
             $stmt->execute(array(
                 'user_id' => $_SESSION['user_id'],
-                'name' => strtolower($_POST['InputName']),
-                'text' => $_POST['InputText']
+                'name' => htmlspecialchars(strtolower($_POST['InputName'])),
+                'text' => htmlspecialchars($_POST['InputText'])
             ));
         }
         catch(PDOException $e){
