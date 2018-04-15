@@ -42,17 +42,17 @@ catch(PDOException $e){
 ?>
 
     <main class="container">
-        <div class="row">
+        <!--<div class="row">
             <div class="col-md-12">
                 <h1>Welcome to Quotinator</h1>
                 <p>Please read our quotes posted by our users.</p>
             </div>
-        </div>
+        </div>-->
         <div class="row mt-4">
             <div class="col-md-10 offset-md-1 quotes">
 
                 <?php
-                    foreach($result as $row){
+                    foreach(array_reverse($result) as $row){
                         $text = $row['text'];
                         $name = ucfirst($row['name']);
                         $date = $row['creation_date'];
