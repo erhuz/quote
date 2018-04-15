@@ -21,7 +21,9 @@ try{
     $result = $stmt->fetchAll();
 }
 catch(PDOException $e){
-    
+    if(!isset($_GET['mess'])){
+        header("location: ?mess=Error: $e&type=danger");
+    }
 }
 
 ?>
