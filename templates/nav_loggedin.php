@@ -13,12 +13,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/add_quote.php">Add quote</a>
                 </li>
-                <li class="nav-item">
+                <!--<li class="nav-item">
                     <a class="nav-link" href="/my_quotes.php">My quotes</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/profile.php">Profile</a>
-                </li>
+                </li>-->
                 <li class="nav-item">
                     <a class="nav-link" href="/logout.php">Log out</a>
                 </li>
