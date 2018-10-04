@@ -4,5 +4,5 @@
 define("db_servername", "localhost");
 define("db_port", "3306");
 define("db_dbname", "quote");
-define("db_username", "dbaccess");
-define("db_password", "Xh4k7x");
+define("db_username", /*<db username>*/);
+define("db_password", /*<db password>*/);
